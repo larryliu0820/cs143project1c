@@ -42,6 +42,10 @@
 		<?php
 			function getField($fieldName) {
 				$result = $_GET[$fieldName];
+				if($result == '')
+					$result = '\N';
+				else
+					$result = '"'.$result.'"';
 		
 				return $result;
 			}
@@ -60,6 +64,7 @@
 				echo "Add Success!!<br/>";
 			}else
 				die(mysql_error()); 
+			mysql_close($db_connection);
 			
 		?>
 				
