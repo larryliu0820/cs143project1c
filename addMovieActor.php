@@ -32649,6 +32649,36 @@
 			<input type="submit" value="Add it!!"/>
 					</form>
 		<hr/>
+
+		<?php
+			function getField($fieldName) {
+				$result = $_GET[$fieldName];
+				
+				$result = '"'.$result.'"';
+				if($result == '')
+					$result = '\N';
+				
+				return $result;
+			}
+
+			$mid = getField('mid');
+			$aid = getField('aid');
+			$role = getField('role');
+
+			//Establish connection with database cs143
+			$db_connection = mysql_connect("localhost", "cs143", "");
+			mysql_select_db("TEST", $db_connection);//change to CS143 later
+			
+			//Add this new movie
+			$query = 'INSERT INTO MovieActor VALUES('.$mid.','.$aid.','.$role.');';
+			echo '"'.$query.'"';
+			$result = mysql_query($query, $db_connection);
+			if($result == TRUE) {
+				echo "Add Success!!<br/>";
+			}else
+				die(mysql_error()); 
+			
+		?>
 				
 	</body>
 </html>
