@@ -86,18 +86,12 @@
 			$reviewQuery = 'SELECT name,time,rating,comment FROM Review WHERE mid='.$mid.';';
 			$result = mysql_query($reviewQuery,$db_connection);
 			while($row = mysql_fetch_row($result)) {
-				echo $row[1];
+				echo "<font color='Blue'>".$row[1].",<font color='Red'>".$row[0];
+				echo "</font> said: I rate this movie for <font color='Red'>".$row[2];
+				echo "</font> star(s), here is my comment.</font><br/>";
+				echo $row[3]."<br/><br/>";
 			}
-			//echo "<font color='Blue'>In";
-
 		?>
-		<font color='Blue'>In 2014-11-02 20:53:04, 
-			<font color='Red'>Mr. Anonymous</font> 
-			said: I rate this move score 
-			<font color='Red'>5</font> 
-			point(s), here is my comment. 
-		</font>
-		<br/>Comments are censored in our demo<br/><br/> 
 		<hr/>
 		
 		<!-- Search Box -->
