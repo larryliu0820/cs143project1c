@@ -15,7 +15,19 @@
     </ul>
 	Browsering Content :
 	<ul>
-      <li><a href="./showActorInfo.php?aid=52794" target="main">Show Actor Information</a></li>
+        <?php
+          //Establish connection with database cs143
+          $db_connection = mysql_connect("localhost", "cs143", "");
+          mysql_select_db("TEST", $db_connection);//change to CS143 later
+
+          //Get an actor
+          $actorQuery = 'SELECT id,first,last FROM Actor LIMIT 1';
+          $result = mysql_query($actorQuery, $db_connection);
+          $row = mysql_fetch_row($result);
+
+          echo '<li><a href="./showActorInfo.php?aid='.$row[0].'" target="main">Show Actor Information</a></li>';
+        ?>
+
       <li><a href="./showMovieInfo.php?mid=2632" target="main">Show Movie Information</a></li>	    
     </ul>
     Search Interface :

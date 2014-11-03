@@ -99,7 +99,7 @@
 			$query = 'INSERT INTO Movie VALUES('.$maxMovieID.','.$title.','.$year.','.$mpaarating.','.$company.');';
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE) {
-				echo "Add Success!!<br/>";
+				echo "<font color='Red'><b>Add Success!!</b></font><br/>";
 				echo "<a href=\"./addMovieActor.php?title=".$_GET['title']."&mid=".$maxMovieID."\" target=\"main\">Add Actor/Role Relation</a>";
 			}else
 				die(mysql_error()); 

@@ -61,7 +61,7 @@
 			echo "<br/>";
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE) {
-				echo "Add Success!!<br/>";
+				echo "<font color='Red'><b>Add Success!!</b></font><br/>";
 			}else
 				die(mysql_error()); 
 			mysql_close($db_connection);

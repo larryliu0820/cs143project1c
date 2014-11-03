@@ -58,7 +58,7 @@
 			$query = 'INSERT INTO '.$identity.' VALUES('.$maxPersonID.','.$last.','.$first.','.$sex.','.$dob.','.$dod.');';
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE)
-				echo "Add Success!!";
+				echo "<font color='Red'><b>Add Success!!</b></font><br/>";
 			else
 				die(mysql_error()); 
 		?>

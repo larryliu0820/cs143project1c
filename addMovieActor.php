@@ -43,7 +43,7 @@
 					</form>
 		<hr/>
 
-		<?php
+		<?php   
 			function getField($fieldName) {
 				$result = $_GET[$fieldName];
 				
@@ -66,7 +66,7 @@
 			echo $query;
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE) {
-				echo "Add Success!!<br/>";
+				echo "<font color='Red'><b>Add Success!!</b></font><br/>";
 			}else
 				die(mysql_error()); 
 			
