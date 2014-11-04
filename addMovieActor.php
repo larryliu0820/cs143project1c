@@ -63,7 +63,6 @@
 			
 			//Add this new movie
 			$query = 'INSERT INTO MovieActor VALUES('.$mid.','.$aid.','.$role.');';
-			echo $query;
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE) {
 				echo "<font color='Red'><b>Add Success!!</b></font><br/>";
