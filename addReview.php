@@ -17,19 +17,22 @@
 					mysql_select_db("TEST", $db_connection);//change to CS143 later
 					$mid = $_GET['mid'];
 					if($mid == '') {
-						$movieQuery = "SELECT title, year FROM Movie";
+						$movieQuery = "SELECT id,title, year FROM Movie";
 						$selectMovie = 'SELECT id,title FROM Movie LIMIT 1';
 						$result = mysql_query($selectMovie,$db_connection);
 						$row = mysql_fetch_row($result);
 						$mid = $row[0];
 					}
 					else
-						$movieQuery = "SELECT title, year FROM Movie WHERE id=".$mid;
+						$movieQuery = "SELECT id, title, year FROM Movie WHERE id=".$mid;
 
 					$result = mysql_query($movieQuery, $db_connection);
 
 					while($row = mysql_fetch_row($result)) {
-						echo '<option value="'.$mid.'" selected="selected">'.$row[0].'('.$row[1].')</option>';
+						if($row[0] == $mid)
+							echo '<option value="'.$mid.'" selected="selected">'.$row[1].'('.$row[2].')</option>';
+						else
+							echo '<option value="'.$row[0].'">'.$row[1].'('.$row[2].')</option>';
 					}
 				?>
 					</select>
