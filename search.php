@@ -17,7 +17,10 @@
 		<?php
 			function printRow($dbName, $row, $numCol) {
 				echo $dbName.': ';
-				echo "<a href=\"./show".$dbName."Info.php?aid=".$row[0]."\">";
+				if($dbName=="Actor")
+					echo "<a href=\"./show".$dbName."Info.php?aid=".$row[0]."\">";
+				else
+					echo "<a href=\"./show".$dbName."Info.php?mid=".$row[0]."\">";
 				for($i = 1; $i < $numCol-1; $i++) {
 					echo $row[$i].' ';
 				}
