@@ -36,9 +36,12 @@
 			$result = mysql_query($directorQuery, $db_connection);
 			echo "Director: <font color='Green'>";
 			while($row = mysql_fetch_row($result)) {
-				$directorNameQuery = 'SELECT first,last FROM Director WHERE id ='.$row[0].';';
+				//echo $row[0].'<br/>';
+				$directorNameQuery = 'SELECT first,last,dob FROM Director WHERE id ='.$row[0].';';
+				//echo $directorNameQuery.'<br/>';
 				$rs = mysql_query($directorNameQuery,$db_connection);
-				echo $rs[0].' '.$rs[1];
+				$row = mysql_fetch_row($rs);
+				echo $row[0].' '.$row[1].'('.$row[2].'),';
 			}
 			echo '</font><br/>';
 			//Get the genre info of the movie
