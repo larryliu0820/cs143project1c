@@ -3,7 +3,7 @@
 	<head>
 		<title>Movie Information</title>
 		<style type="text/css">
-		@import url(cs143style.css);
+		@import url("http://yui.yahooapis.com/pure/0.5.0/pure-min.css");
 		</style>
 	</head>	
 	<body>

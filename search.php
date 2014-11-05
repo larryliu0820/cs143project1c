@@ -4,7 +4,7 @@
 	<head>
 		<title>Search Actor / Movie</title>
 		<style type="text/css">
-		@import url(cs143style.css);
+		@import url("http://yui.yahooapis.com/pure/0.5.0/pure-min.css");
 		</style>
 	</head>	
 	<body>
@@ -36,9 +36,26 @@
 			mysql_select_db("TEST", $db_connection);//change to CS143 later
 			//Search in Actor database
 			echo 'Searching in Actor database...<br/>';
+			//Detect space in keyword
+			$keyword = trim($keyword);
+
+			//$hasSpace = preg_match('/\s/',$foo);
 
 			$actorQuery = "SELECT id, first, last, dob FROM Actor 
-				WHERE first LIKE '%".$keyword."%' OR last LIKE '%".$keyword."%';";
+				WHERE ";
+			$pieces = explode(' ', $keyword);
+			if(count($pieces) !=2) {
+				$actorQuery = $actorQuery."first LIKE '%".$keyword."%' OR last LIKE '%".$keyword."%';";
+			}else{
+				for($i = 0; $i < 2; $i ++) {
+					$actorQuery = $actorQuery."first LIKE '%".$pieces[$i % 2]."%' AND last LIKE '%".$pieces[($i+1) % 2]."%'";
+					if($i == 0) {
+						$actorQuery = $actorQuery." OR ";
+					}
+				}
+				
+			}
+			
 			$result = mysql_query($actorQuery, $db_connection);
 
 			while($row = mysql_fetch_row($result)) {
