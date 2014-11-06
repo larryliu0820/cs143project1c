@@ -4,7 +4,7 @@
 	<head>
 		<title>add review</title>
 		<style type="text/css">
-		@import url("http://yui.yahooapis.com/pure/0.5.0/pure-min.css");
+		@import url(cs143style.css);
 		</style>
 	</head>	
 	<body>
