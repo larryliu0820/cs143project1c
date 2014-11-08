@@ -13,7 +13,7 @@
 				<?php
 					//Establish connection with database cs143
 					$db_connection = mysql_connect("localhost", "cs143", "");
-					mysql_select_db("TEST", $db_connection);//change to CS143 later
+					mysql_select_db("CS143", $db_connection);//change to CS143 later
 
 					$movieQuery = "SELECT id, title, year FROM Movie";
 					$result = mysql_query($movieQuery, $db_connection);
@@ -57,8 +57,6 @@
 			
 			//Add this new relation into MovieDirector table
 			$query = 'INSERT INTO MovieDirector VALUES('.$mid.','.$did.');';
-			echo $query;
-			echo "<br/>";
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE) {
 				echo "<font color='Red'><b>Add Success!!</b></font><br/>";

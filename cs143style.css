@@ -5,8 +5,10 @@
 
 body {
 	font-family: "trebuchet ms", "lucidia grande", verdana, arial, sans-serif;
-	background-color: #4A87CE;
-	font-size: x-large;
+	background-color: #6FC0F8;
+	min-width: 320px;
+	font-size: large;
+	color: #515252;
 }
 
 table {

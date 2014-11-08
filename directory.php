@@ -18,7 +18,7 @@
         <?php
           //Establish connection with database cs143
           $db_connection = mysql_connect("localhost", "cs143", "");
-          mysql_select_db("TEST", $db_connection);//change to CS143 later
+          mysql_select_db("CS143", $db_connection);//change to CS143 later
 
           //Get an actor
           $actorQuery = 'SELECT id,first,last FROM Actor LIMIT 1;';

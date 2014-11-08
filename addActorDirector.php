@@ -35,7 +35,8 @@
 				return $result;
 			}
 			$identity = getField('identity');
-			$sex = getField('sex');
+			if($identity=='Actor')
+				$sex = getField('sex');
 			$first = getField('first');
 			$last = getField('last');
 			$dob = getField('dob');
@@ -44,7 +45,7 @@
 				return;
 			//Establish connection with database cs143
 			$db_connection = mysql_connect("localhost", "cs143", "");
-			mysql_select_db("TEST", $db_connection);//change to CS143 later
+			mysql_select_db("CS143", $db_connection);//change to CS143 later
 
 			$updateMaxPersonID = 'UPDATE MaxPersonID SET id = id + 1;';
 			$result = mysql_query($updateMaxPersonID, $db_connection);
@@ -55,7 +56,10 @@
 			$row = mysql_fetch_row($result);
 
 			$maxPersonID = $row[0];
-			$query = 'INSERT INTO '.$identity.' VALUES('.$maxPersonID.','.$last.','.$first.','.$sex.','.$dob.','.$dod.');';
+			if($identity=='Actor')
+				$query = 'INSERT INTO Actor VALUES('.$maxPersonID.','.$last.','.$first.','.$sex.','.$dob.','.$dod.');';
+			else 
+				$query = 'INSERT INTO Director VALUES('.$maxPersonID.','.$last.','.$first.','.$dob.','.$dod.');';
 			$result = mysql_query($query, $db_connection);
 			if($result == TRUE)
 				echo "<font color='Red'><b>Add Success!!</b></font><br/>";

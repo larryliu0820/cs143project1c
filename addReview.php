@@ -14,7 +14,7 @@
 				<?php
 					//Establish connection with database cs143
 					$db_connection = mysql_connect("localhost", "cs143", "");
-					mysql_select_db("TEST", $db_connection);//change to CS143 later
+					mysql_select_db("CS143", $db_connection);//change to CS143 later
 					$mid = $_GET['mid'];
 					if($mid == '') {
 						$movieQuery = "SELECT id,title, year FROM Movie";
